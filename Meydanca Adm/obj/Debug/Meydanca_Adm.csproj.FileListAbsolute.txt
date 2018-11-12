@@ -1,0 +1,21 @@
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\MainWindow.g.cs
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\App.g.cs
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca Adm_Content.g.cs
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca Adm_MarkupCompile.cache
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca Adm_MarkupCompile.lref
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca Adm.exe
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca Adm.pdb
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\Meydanca Adm.exe.config
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\Meydanca Adm.exe
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\Meydanca Adm.pdb
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\EntityFramework.dll
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\EntityFramework.xml
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\MainWindow.baml
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca Adm.g.resources
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.Properties.Resources.resources
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csproj.GenerateResource.cache
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csproj.CoreCompileInputs.cache
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csproj.CopyComplete
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csprojAssemblyReference.cache

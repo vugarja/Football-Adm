@@ -1,0 +1,29 @@
+﻿<Window x:Class="Meydanca_Adm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Meydanca_Adm"
+        mc:Ignorable="d"
+        Title="Futbol Meydançası" Height="600" Width="1000" FontFamily="Malgun Gothic" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,0.5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="223*"/>
+        </Grid.ColumnDefinitions>
+        <DatePicker HorizontalAlignment="Left" Margin="50,166,0,0" VerticalAlignment="Top" Height="27" Width="131" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <Label x:Name="lblDate" Content="Tarix Seçin" HorizontalAlignment="Left" Margin="50,139,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="lblWelcome" Content="Futbol Meydança Sisteminə Xoş Gəlmisiniz!" HorizontalAlignment="Left" Margin="38.5,37,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Background="White" Foreground="Red" Grid.Column="1"/>
+        <Label x:Name="lblRegister" Content="Qeydiyyat" HorizontalAlignment="Left" Margin="50,91,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblStadium" Content="Meydança seçin" HorizontalAlignment="Left" Margin="50,225,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox x:Name="cmbStadiums" HorizontalAlignment="Left" Margin="50,254,0,0" VerticalAlignment="Top" Width="130" SelectionChanged="cmbStadiums_SelectionChanged"/>
+        <ComboBox x:Name="CmbHours" HorizontalAlignment="Left" Margin="220,168,0,0" VerticalAlignment="Top" Width="128" Grid.ColumnSpan="2" Visibility="Visible"/>
+        <Label x:Name="lblUser" Content="İstifadəçi seçin" HorizontalAlignment="Left" Margin="49,300,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Visible"/>
+        <ComboBox x:Name="CmbUsers" HorizontalAlignment="Left" Margin="53,329,0,0" VerticalAlignment="Top" Width="130" Visibility="Visible"/>
+        <Button x:Name="btnStadium" Content="Meydança Yarat" HorizontalAlignment="Left" Margin="226,252,0,0" VerticalAlignment="Top" Width="123" Height="25" Grid.ColumnSpan="2" Visibility="Visible"/>
+        <Button x:Name="btnUser" Content="İstifadəçi Yarat" HorizontalAlignment="Left" Margin="226,324,0,0" VerticalAlignment="Top" Width="122" Height="25" RenderTransformOrigin="-0.107,0.5" Grid.ColumnSpan="2" Visibility="Visible"/>
+        <Button x:Name="btnComplete" Content="Qeydiyyatı tamamla" HorizontalAlignment="Left" Margin="88,397,0,0" VerticalAlignment="Top" Width="217" Height="49" Grid.ColumnSpan="2" Visibility="Visible"/>
+        <Label x:Name="lblHours" Content="Saat Seçin" HorizontalAlignment="Left" Margin="220,141,0,0" VerticalAlignment="Top" FontSize="14" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>
