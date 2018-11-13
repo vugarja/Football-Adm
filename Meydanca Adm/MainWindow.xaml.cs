@@ -23,64 +23,76 @@ namespace Meydanca_Adm
     public partial class MainWindow : Window
     {
         private AdmEntities db = new AdmEntities();
+
+        //Defining the working hours for stadiums
+        TimeSpan StartTime = new TimeSpan(8, 0, 0);
+        TimeSpan EndTime = new TimeSpan(1, 0, 0);
+
         public MainWindow()
         {
             InitializeComponent();
-            FillStadiumList();
+            FillHours();
         }
 
         #region registration
 
-        //Function to add stadiums from db to the list
-        private void FillStadiumList()
+   
+        //Function to fill hours
+        private void FillHours()
         {
-            foreach (Stadium stadium in db.Stadiums.ToList())
-            {
-                cmbStadiums.Items.Add(stadium.name);
-            }
-        }
-
-        //Function to see the available hours for games
-        private void FillAvailableStadiums()
-        {
-            if (string.IsNullOrEmpty(dtpDate.Text))
-            {
-                MessageBox.Show("Zəhmət olmasa tarix seçin");
-                return;
-            }
-
-            TimeSpan StartTime = new TimeSpan(8, 0, 0);
-            TimeSpan EndTime = new TimeSpan(1, 0, 0);
-
+       
             int interval = (int)(EndTime.Subtract(StartTime).TotalHours + 24);
 
             for (int i = 0; i < interval; i++)
             {
                 CmbHours.Items.Add(StartTime.ToString(@"hh\:mm"));
-                StartTime = StartTime.Add(new TimeSpan(1, 0, 0));
 
+                StartTime = StartTime.Add(new TimeSpan(1, 0, 0));
+               
+                //Hours should show 00:00 when it is 24:00
                 if (StartTime.Hours == 0)
                 {
                     StartTime = new TimeSpan(0, 0, 0);
                 }
+  
             }
 
         }
 
-        //Available stadiums should change based on selected date
-        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //Function to add stadiums from db to the list
+
+        private void FillStadiumList()
         {
-            FillAvailableStadiums();
-        }
-        //Available stadiums should change based on selected hour
-        private void CmbHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            FillAvailableStadiums();
+            cmbStadiums.Items.Clear();
+
+            foreach (Stadium stadium in db.Stadiums.ToList())
+            {
+                cmbStadiums.Items.Add(stadium.name);
+            }
+
+            Stadium stad = db.Stadiums.FirstOrDefault(s => s.name == cmbStadiums.Text);
+
+
+            DateTime BookingDate = dtpDate.SelectedDate.Value;
+
+            int count = db.Bookings.Where(b => b.Date == BookingDate.Date && b.Time == StartTime && b.StadiumId == stad.Id).Count();
+
+            MessageBox.Show(count.ToString());
+
+            
         }
 
 
         #endregion
 
-        
+        private void dtpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillStadiumList();
+        }
+
+        private void CmbHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillStadiumList();
+        }
     }
 }
