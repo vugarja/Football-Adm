@@ -21,6 +21,7 @@ namespace Meydanca_Adm.Models
         public System.TimeSpan Time { get; set; }
         public System.DateTime Created { get; set; }
         public int RoomId { get; set; }
+        public decimal Price { get; set; }
     
         public virtual Contact Contact { get; set; }
         public virtual Stadium Stadium { get; set; }

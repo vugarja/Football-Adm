@@ -16,6 +16,7 @@
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="5" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -112,6 +113,7 @@
           <NavigationProperty Name="Stadium" Relationship="Self.FK_Bookings_Stadiums" FromRole="Bookings" ToRole="Stadiums" />
           <Property Name="RoomId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Room" Relationship="Model.FK_Bookings_Rooms" FromRole="Booking" ToRole="Room" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -202,6 +204,7 @@
           <EntitySetMapping Name="Bookings">
             <EntityTypeMapping TypeName="Model.Booking">
               <MappingFragment StoreEntitySet="Bookings">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="RoomId" ColumnName="RoomId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="StadiumId" ColumnName="StadiumId" />

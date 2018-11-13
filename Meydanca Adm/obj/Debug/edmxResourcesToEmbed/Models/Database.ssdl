@@ -11,6 +11,7 @@
     <Property Name="Time" Type="time" Precision="7" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="RoomId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="5" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Contacts">
     <Key>

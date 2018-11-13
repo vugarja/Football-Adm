@@ -11,13 +11,13 @@
             <ColumnDefinition Width="76*"/>
             <ColumnDefinition Width="223*"/>
         </Grid.ColumnDefinitions>
-        <DatePicker HorizontalAlignment="Left" Margin="50,166,0,0" VerticalAlignment="Top" Height="27" Width="131" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <DatePicker x:Name="dtpDate" HorizontalAlignment="Left" Margin="50,166,0,0" VerticalAlignment="Top" Height="27" Width="131" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
         <Label x:Name="lblDate" Content="Tarix Seçin" HorizontalAlignment="Left" Margin="50,139,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="lblWelcome" Content="Futbol Meydança Sisteminə Xoş Gəlmisiniz!" HorizontalAlignment="Left" Margin="38.5,37,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Background="White" Foreground="Red" Grid.Column="1"/>
         <Label x:Name="lblRegister" Content="Qeydiyyat" HorizontalAlignment="Left" Margin="50,91,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblStadium" Content="Meydança seçin" HorizontalAlignment="Left" Margin="50,225,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="cmbStadiums" HorizontalAlignment="Left" Margin="50,254,0,0" VerticalAlignment="Top" Width="130" SelectionChanged="cmbStadiums_SelectionChanged"/>
-        <ComboBox x:Name="CmbHours" HorizontalAlignment="Left" Margin="220,168,0,0" VerticalAlignment="Top" Width="128" Grid.ColumnSpan="2" Visibility="Visible"/>
+        <ComboBox x:Name="cmbStadiums" HorizontalAlignment="Left" Margin="50,254,0,0" VerticalAlignment="Top" Width="130"/>
+        <ComboBox x:Name="CmbHours" HorizontalAlignment="Left" Margin="220,168,0,0" VerticalAlignment="Top" Width="128" Grid.ColumnSpan="2" Visibility="Visible" SelectionChanged="CmbHours_SelectionChanged"/>
         <Label x:Name="lblUser" Content="İstifadəçi seçin" HorizontalAlignment="Left" Margin="49,300,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Visible"/>
         <ComboBox x:Name="CmbUsers" HorizontalAlignment="Left" Margin="53,329,0,0" VerticalAlignment="Top" Width="130" Visibility="Visible"/>
         <Button x:Name="btnStadium" Content="Meydança Yarat" HorizontalAlignment="Left" Margin="226,252,0,0" VerticalAlignment="Top" Width="123" Height="25" Grid.ColumnSpan="2" Visibility="Visible"/>

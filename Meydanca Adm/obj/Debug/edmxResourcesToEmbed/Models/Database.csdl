@@ -14,6 +14,7 @@
     <NavigationProperty Name="Stadium" Relationship="Self.FK_Bookings_Stadiums" FromRole="Bookings" ToRole="Stadiums" />
     <Property Name="RoomId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Room" Relationship="Model.FK_Bookings_Rooms" FromRole="Booking" ToRole="Room" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
   </EntityType>
   <EntityType Name="Contact">
     <Key>

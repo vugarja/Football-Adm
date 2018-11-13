@@ -41,25 +41,46 @@ namespace Meydanca_Adm
         }
 
         //Function to see the available hours for games
-        private void FillAvailableHours()
+        private void FillAvailableStadiums()
         {
+            if (string.IsNullOrEmpty(dtpDate.Text))
+            {
+                MessageBox.Show("Zəhmət olmasa tarix seçin");
+                return;
+            }
+
+            TimeSpan StartTime = new TimeSpan(8, 0, 0);
+            TimeSpan EndTime = new TimeSpan(1, 0, 0);
+
+            int interval = (int)(EndTime.Subtract(StartTime).TotalHours + 24);
+
+            for (int i = 0; i < interval; i++)
+            {
+                CmbHours.Items.Add(StartTime.ToString(@"hh\:mm"));
+                StartTime = StartTime.Add(new TimeSpan(1, 0, 0));
+
+                if (StartTime.Hours == 0)
+                {
+                    StartTime = new TimeSpan(0, 0, 0);
+                }
+            }
 
         }
 
-        //Available hours should change based on selected stadium
-        private void cmbStadiums_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            FillAvailableHours();
-        }
-
-        //Available hours should change based on selected date
+        //Available stadiums should change based on selected date
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            FillAvailableHours();
+            FillAvailableStadiums();
         }
+        //Available stadiums should change based on selected hour
+        private void CmbHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillAvailableStadiums();
+        }
+
 
         #endregion
 
-
+        
     }
 }
