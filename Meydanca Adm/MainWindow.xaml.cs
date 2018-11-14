@@ -24,23 +24,48 @@ namespace Meydanca_Adm
     {
         private AdmEntities db = new AdmEntities();
 
-        //Defining the working hours for stadiums
-        TimeSpan StartTime = new TimeSpan(8, 0, 0);
-        TimeSpan EndTime = new TimeSpan(1, 0, 0);
-
         public MainWindow()
         {
             InitializeComponent();
-            FillHours();
+            
         }
 
         #region registration
 
-   
+        //Calling functions when the data in date and hours change
+        private void dtpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillStadiumList();
+            FillHours();
+        }
+
+        private void CmbHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillStadiumList();
+        }
+
+
+        private void cmbStadiums_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CmbUsers.Text = "";
+            if (!string.IsNullOrEmpty(CmbHours.Text))
+            {
+                FillContacts();
+
+            }
+        }
+
         //Function to fill hours
         private void FillHours()
         {
-       
+
+            CmbHours.Items.Clear();
+
+
+            //Defining the working hours for stadiums
+            TimeSpan StartTime = new TimeSpan(8, 0, 0);
+            TimeSpan EndTime = new TimeSpan(1, 0, 0);
+
             int interval = (int)(EndTime.Subtract(StartTime).TotalHours + 24);
 
             for (int i = 0; i < interval; i++)
@@ -59,40 +84,50 @@ namespace Meydanca_Adm
 
         }
 
-        //Function to add stadiums from db to the list
-
+        //Function to add stadiums from db to the list 
         private void FillStadiumList()
         {
             cmbStadiums.Items.Clear();
 
-            foreach (Stadium stadium in db.Stadiums.ToList())
-            {
-                cmbStadiums.Items.Add(stadium.name);
-            }
+            //lblUser.Visibility = Visibility.Hidden;
+            //CmbUsers.Visibility = Visibility.Hidden;
+            CmbUsers.Items.Clear();
 
-            Stadium stad = db.Stadiums.FirstOrDefault(s => s.name == cmbStadiums.Text);
+            cmbStadiums.Text = "";
+            CmbHours.Text = "";
+            CmbUsers.Text = "";
 
 
             DateTime BookingDate = dtpDate.SelectedDate.Value;
+            if (CmbHours.SelectedItem != null)
+            {
+                string hour = CmbHours.SelectedItem.ToString();
+                TimeSpan time = TimeSpan.Parse(hour);
 
-            int count = db.Bookings.Where(b => b.Date == BookingDate.Date && b.Time == StartTime && b.StadiumId == stad.Id).Count();
-
-            MessageBox.Show(count.ToString());
-
+                foreach (Stadium stadium in db.Stadiums.Where(s => s.Bookings.Where(b => b.Date == BookingDate && b.Time == time).Count() == 0).ToList())
+                {
+                    cmbStadiums.Items.Add(stadium.name);
+                }
+            }
             
         }
 
+        //Function to add contact
+        private void FillContacts()
+        {
+            foreach (Contact cnt in db.Contacts.OrderBy(c => c.Name).OrderBy(c => c.Surname).ToList())
+            {
+                CmbUsers.Items.Add(cnt.Name + " " + cnt.Surname + " " + cnt.Phone);
+            }
+            
+        }
 
         #endregion
 
-        private void dtpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-            FillStadiumList();
-        }
-
-        private void CmbHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            FillStadiumList();
+            AddUser addUser = new AddUser();
+            addUser.ShowDialog();
         }
     }
 }

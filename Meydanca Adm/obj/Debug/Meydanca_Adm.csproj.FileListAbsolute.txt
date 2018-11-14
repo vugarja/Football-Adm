@@ -19,3 +19,5 @@ C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csp
 C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csproj.CoreCompileInputs.cache
 C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csproj.CopyComplete
 C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\Meydanca_Adm.csprojAssemblyReference.cache
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\AddUser.g.cs
+C:\Users\Vugar\source\repos\Meydanca Adm\Meydanca Adm\obj\Debug\AddUser.baml
