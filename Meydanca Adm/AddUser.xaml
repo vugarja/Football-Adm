@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Yeni Şəxs Yaratma" Height="450" Width="400" ResizeMode="NoResize" ScrollViewer.VerticalScrollBarVisibility="Disabled" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Button x:Name="btnNewUser" Content="Yeni Şəxs Yarat" HorizontalAlignment="Left" Margin="50,336,0,0" VerticalAlignment="Top" Width="300" Height="62"/>
-        <Label x:Name="lblUserName" Content="Ad" HorizontalAlignment="Left" Margin="48,27,0,0" VerticalAlignment="Top" Height="27" Width="56"/>
+        <Button x:Name="btnNewUser" Content="Yeni Şəxs Yarat" HorizontalAlignment="Left" Margin="50,336,0,0" VerticalAlignment="Top" Width="300" Height="62" Click="btnNewUser_Click"/>
+        <Label x:Name="lblUserName" Content="Ad*" HorizontalAlignment="Left" Margin="48,27,0,0" VerticalAlignment="Top" Height="27" Width="56"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="50,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"/>
-        <Label x:Name="lblUserSurname" Content="Soyad" HorizontalAlignment="Left" Margin="48,130,0,0" VerticalAlignment="Top" Height="27" Width="56"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="50,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"/>
-        <Label Content="Telefon Nömrəsi" HorizontalAlignment="Left" Margin="47,233,0,0" VerticalAlignment="Top" Height="27" Width="98"/>
+        <Label x:Name="lblUserSurname" Content="Soyad*" HorizontalAlignment="Left" Margin="48,130,0,0" VerticalAlignment="Top" Height="27" Width="56"/>
+        <TextBox x:Name="txtSurname" HorizontalAlignment="Left" Height="23" Margin="50,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"/>
+        <Label x:Name="lblUserPhone" Content="Telefon Nömrəsi*" HorizontalAlignment="Left" Margin="47,233,0,0" VerticalAlignment="Top" Height="27" Width="98"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="50,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"/>
         <TextBox x:Name="txtUserPhone" HorizontalAlignment="Left" Height="23" Margin="50,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"/>
 

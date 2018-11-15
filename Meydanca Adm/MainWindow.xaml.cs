@@ -24,10 +24,22 @@ namespace Meydanca_Adm
     {
         private AdmEntities db = new AdmEntities();
 
+
         public MainWindow()
         {
+
             InitializeComponent();
-            
+
+            CmbHours.Visibility = Visibility.Hidden;
+            lblHours.Visibility = Visibility.Hidden;
+            cmbStadiums.Visibility = Visibility.Hidden;
+            lblStadium.Visibility = Visibility.Hidden;
+            btnStadium.Visibility = Visibility.Hidden;
+            lblUser.Visibility = Visibility.Hidden;
+            CmbUsers.Visibility = Visibility.Hidden;
+            btnUser.Visibility = Visibility.Hidden;
+            btnComplete.Visibility = Visibility.Hidden;
+
         }
 
         #region registration
@@ -35,32 +47,41 @@ namespace Meydanca_Adm
         //Calling functions when the data in date and hours change
         private void dtpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            FillStadiumList();
+            
             FillHours();
+            FillContacts();
+
+            CmbHours.Visibility = Visibility.Visible;
+            lblHours.Visibility = Visibility.Visible;
+            cmbStadiums.Visibility = Visibility.Hidden;
+            lblStadium.Visibility = Visibility.Hidden;
+
+
         }
 
         private void CmbHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             FillStadiumList();
+            FillContacts();
+            cmbStadiums.Visibility = Visibility.Visible;
+            lblStadium.Visibility = Visibility.Visible;
+            btnStadium.Visibility = Visibility.Visible;
         }
 
 
         private void cmbStadiums_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CmbUsers.Text = "";
-            if (!string.IsNullOrEmpty(CmbHours.Text))
-            {
-                FillContacts();
+            lblUser.Visibility = Visibility.Visible;
+            CmbUsers.Visibility = Visibility.Visible;
+            btnUser.Visibility = Visibility.Visible;
 
-            }
+            
         }
 
         //Function to fill hours
         private void FillHours()
         {
-
             CmbHours.Items.Clear();
-
 
             //Defining the working hours for stadiums
             TimeSpan StartTime = new TimeSpan(8, 0, 0);
@@ -82,6 +103,8 @@ namespace Meydanca_Adm
   
             }
 
+            lblStadium.Visibility = Visibility.Visible;
+            cmbStadiums.Visibility=Visibility.Visible;
         }
 
         //Function to add stadiums from db to the list 
@@ -89,8 +112,7 @@ namespace Meydanca_Adm
         {
             cmbStadiums.Items.Clear();
 
-            //lblUser.Visibility = Visibility.Hidden;
-            //CmbUsers.Visibility = Visibility.Hidden;
+        
             CmbUsers.Items.Clear();
 
             cmbStadiums.Text = "";
@@ -115,6 +137,7 @@ namespace Meydanca_Adm
         //Function to add contact
         private void FillContacts()
         {
+            CmbUsers.Items.Clear();
             foreach (Contact cnt in db.Contacts.OrderBy(c => c.Name).OrderBy(c => c.Surname).ToList())
             {
                 CmbUsers.Items.Add(cnt.Name + " " + cnt.Surname + " " + cnt.Phone);
@@ -122,12 +145,27 @@ namespace Meydanca_Adm
             
         }
 
-        #endregion
+        //Adding new user to contacts list
+        public void AddUser(int id)
+        {
+            FillContacts();
 
+        }
+
+        // Button to add a new  user
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-            AddUser addUser = new AddUser();
+            AddUser addUser = new AddUser(this);
             addUser.ShowDialog();
+        }
+
+
+
+        #endregion
+
+        private void CmbUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnComplete.Visibility = Visibility.Visible;
         }
     }
 }
