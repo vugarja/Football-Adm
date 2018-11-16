@@ -16,15 +16,15 @@ namespace Meydanca_Adm.Models
     {
         public int Id { get; set; }
         public int StadiumId { get; set; }
-        public int ConctactId { get; set; }
+        public int ContactId { get; set; }
         public System.DateTime Date { get; set; }
         public System.TimeSpan Time { get; set; }
         public System.DateTime Created { get; set; }
-        public int RoomId { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<int> RoomId { get; set; }
+        public Nullable<decimal> Price { get; set; }
     
         public virtual Contact Contact { get; set; }
-        public virtual Stadium Stadium { get; set; }
         public virtual Room Room { get; set; }
+        public virtual Stadium Stadium { get; set; }
     }
 }

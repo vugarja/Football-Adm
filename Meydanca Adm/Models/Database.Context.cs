@@ -13,10 +13,10 @@ namespace Meydanca_Adm.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AdmEntities : DbContext
+    public partial class Mey_Entities : DbContext
     {
-        public AdmEntities()
-            : base("name=AdmEntities")
+        public Mey_Entities()
+            : base("name=Mey_Entities")
         {
         }
     

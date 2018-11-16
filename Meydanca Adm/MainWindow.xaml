@@ -16,9 +16,9 @@
         <ComboBox x:Name="CmbHours" HorizontalAlignment="Left" Margin="272,166,0,0" VerticalAlignment="Top" Width="128" Visibility="Visible" SelectionChanged="CmbHours_SelectionChanged"/>
         <Label x:Name="lblUser" Content="İstifadəçi seçin" HorizontalAlignment="Left" Margin="49,300,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Visible"/>
         <ComboBox x:Name="CmbUsers" HorizontalAlignment="Left" Margin="53,329,0,0" VerticalAlignment="Top" Width="190" Visibility="Visible" SelectionChanged="CmbUsers_SelectionChanged"/>
-        <Button x:Name="btnStadium" Content="Meydança Yarat" HorizontalAlignment="Left" Margin="274,252,0,0" VerticalAlignment="Top" Width="122" Height="24" Visibility="Visible"/>
+        <Button x:Name="btnStadium" Content="Meydança Yarat" HorizontalAlignment="Left" Margin="274,252,0,0" VerticalAlignment="Top" Width="122" Height="24" Visibility="Visible" Click="btnStadium_Click"/>
         <Button x:Name="btnUser" Content="İstifadəçi Yarat" HorizontalAlignment="Left" Margin="273,326,0,0" VerticalAlignment="Top" Width="122" Height="24" RenderTransformOrigin="-0.107,0.5" Visibility="Visible" Click="btnUser_Click"/>
-        <Button x:Name="btnComplete" Content="Qeydiyyatı tamamla" HorizontalAlignment="Left" Margin="88,397,0,0" VerticalAlignment="Top" Width="217" Height="49" Grid.ColumnSpan="2" Visibility="Visible"/>
+        <Button x:Name="btnComplete" Content="Qeydiyyatı tamamla" HorizontalAlignment="Left" Margin="88,397,0,0" VerticalAlignment="Top" Width="217" Height="49" Grid.ColumnSpan="2" Visibility="Visible" Click="btnComplete_Click"/>
         <Label x:Name="lblHours" Content="Saat Seçin" HorizontalAlignment="Left" Margin="272,137,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.5,0.5" Visibility="Visible">
         </Label>
     </Grid>

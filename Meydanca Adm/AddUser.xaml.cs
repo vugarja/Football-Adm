@@ -22,7 +22,7 @@ namespace Meydanca_Adm
     public partial class AddUser : Window
     {
 
-        private AdmEntities db = new AdmEntities();
+        private Mey_Entities db = new Mey_Entities();
 
         private MainWindow Main;
         
@@ -89,11 +89,10 @@ namespace Meydanca_Adm
             {
                 MessageBox.Show("Bu nömrə ilə şəxs artıq mövcuddur");
                 return;
-                Contact cnt = db.Contacts.FirstOrDefault(c => c.Phone == txtUserPhone.Text);
-                Main.AddUser(cnt.Id);
+                
             }
 
-            this.Close();
+            //this.Close();
         }
     }
 }

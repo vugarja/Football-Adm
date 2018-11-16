@@ -22,8 +22,10 @@ namespace Meydanca_Adm
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AdmEntities db = new AdmEntities();
+        private Mey_Entities db = new Mey_Entities();
 
+        TimeSpan StartTime = new TimeSpan(8, 0, 0);
+        TimeSpan EndTime = new TimeSpan(1, 0, 0);
 
         public MainWindow()
         {
@@ -40,6 +42,8 @@ namespace Meydanca_Adm
             btnUser.Visibility = Visibility.Hidden;
             btnComplete.Visibility = Visibility.Hidden;
 
+            dtpDate.DisplayDateStart = DateTime.Now;
+
         }
 
         #region registration
@@ -48,6 +52,7 @@ namespace Meydanca_Adm
         private void dtpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             
+
             FillHours();
             FillContacts();
 
@@ -75,7 +80,6 @@ namespace Meydanca_Adm
             CmbUsers.Visibility = Visibility.Visible;
             btnUser.Visibility = Visibility.Visible;
 
-            
         }
 
         //Function to fill hours
@@ -116,7 +120,7 @@ namespace Meydanca_Adm
             CmbUsers.Items.Clear();
 
             cmbStadiums.Text = "";
-            CmbHours.Text = "";
+            
             CmbUsers.Text = "";
 
 
@@ -145,11 +149,18 @@ namespace Meydanca_Adm
             
         }
 
-        //Adding new user to contacts list
-        public void AddUser(int id)
-        {
-            FillContacts();
 
+        
+        //Button to add a new stadium
+        private void btnStadium_Click(object sender, RoutedEventArgs e)
+        {
+            AddStadium addstad = new AddStadium(this);
+            addstad.ShowDialog();
+        }
+        // Adding a stadium
+        public void AddStadium(int id)
+        {
+            FillStadiumList();
         }
 
         // Button to add a new  user
@@ -159,13 +170,84 @@ namespace Meydanca_Adm
             addUser.ShowDialog();
         }
 
+        //Adding new user to contacts list
+        public void AddUser(int id)
+        {
+            FillContacts();
 
+        }
 
-        #endregion
-
+        
+        //Button shows after selecting a user
         private void CmbUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             btnComplete.Visibility = Visibility.Visible;
         }
+
+        private void btnComplete_Click(object sender, RoutedEventArgs e)
+        {
+
+            //if (string.IsNullOrEmpty(CmbUsers.Text))
+            //{
+            //    MessageBox.Show("Zəhmət olmasa şəxsi seçin");
+            //    return;
+            //}
+
+
+            TimeSpan time = new TimeSpan(Convert.ToInt32(CmbHours.Text.Split(':')[0]), 0, 0);
+
+            DateTime date = dtpDate.SelectedDate.Value.Date;
+
+            if (time.Hours<StartTime.Hours)
+            {
+                date = date.AddDays(1);
+            }
+
+            string phone = CmbUsers.Text.Split(' ')[2];
+
+            //MessageBox.Show(phone);
+
+            Booking booking = new Booking
+            {
+                StadiumId = db.Stadiums.FirstOrDefault(s => s.name == cmbStadiums.Text).Id,
+                Date = date,
+                Time = time,
+                Created = DateTime.Now,
+                ContactId = db.Contacts.FirstOrDefault(c => c.Phone == phone).Id,
+            };
+            db.Bookings.Add(booking);
+            db.SaveChanges();
+
+            MessageBox.Show("Qeydiyyat uğurla həyata keçirildi");
+
+            //Reset the filled values
+
+            lblHours.Visibility = Visibility.Hidden;
+            CmbHours.Items.Clear();
+            CmbHours.Text = "";
+            CmbHours.Visibility = Visibility.Hidden;
+
+            lblStadium.Visibility = Visibility.Hidden;
+            cmbStadiums.Text = "";
+            cmbStadiums.Items.Clear();
+            cmbStadiums.Visibility = Visibility.Hidden;
+
+            btnStadium.Visibility = Visibility.Hidden;
+
+            lblUser.Visibility = Visibility.Hidden;
+            CmbUsers.Text = "";
+            CmbUsers.Items.Clear();
+            CmbUsers.Visibility = Visibility.Hidden;
+
+            btnUser.Visibility = Visibility.Hidden;
+
+
+
+            return;
+        }
+
+        #endregion
+
+
     }
 }

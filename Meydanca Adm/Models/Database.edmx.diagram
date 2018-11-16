@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="763fca47a8244f88b16fd0a9ffdf5bee" Name="Diagram1">
+      <Diagram DiagramId="74302e292e5245009b0d122871443b6c" Name="Diagram1">
         <EntityTypeShape EntityType="Model.Booking" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="5.375" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Stadium" Width="1.5" PointX="2.875" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Stadium" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_Bookings_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Bookings_Rooms" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Bookings_Stadiums" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Bookings_Rooms" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
